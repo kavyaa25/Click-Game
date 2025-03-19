@@ -1,0 +1,189 @@
+.theme-light {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    color: #1f2937;
+    animation: lightBgAnimation 20s ease infinite;
+    background-size: 400% 400%;
+}
+
+.theme-dark {
+    background: linear-gradient(135deg, #121212 0%, #1e1e1e 25%, #2d2d2d 50%, #1e1e1e 75%, #121212 100%);
+    color: #e0e0e0;
+    animation: darkBgAnimation 20s ease infinite;
+    background-size: 400% 400%;
+}
+
+.theme-neon {
+    background: linear-gradient(135deg, #2b1055 0%, #7597de 25%, #4f46e5 50%, #7c3aed 75%, #2b1055 100%);
+    color: #000000;
+    animation: neonBgAnimation 15s ease infinite;
+    background-size: 400% 400%;
+    position: relative;
+}
+
+.theme-neon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.2) 0%, rgba(124, 58, 237, 0) 70%);
+    animation: neonPulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes lightBgAnimation {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+@keyframes darkBgAnimation {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+@keyframes neonBgAnimation {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+@keyframes neonPulse {
+    0% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+    100% { opacity: 0.5; transform: scale(1); }
+}
+
+.theme-light .score-panel,
+.theme-light .shop-item,
+.theme-light .leaderboard-container,
+.theme-light .achievements-container,
+.theme-light .theme-selector {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.theme-dark .navbar {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.theme-dark .score-panel,
+.theme-dark .shop-item,
+.theme-dark .leaderboard-container,
+.theme-dark .achievements-container,
+.theme-dark .theme-selector {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.theme-dark .game-button {
+    background: linear-gradient(135deg, #2d2d2d, #404040);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.theme-dark .game-button:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.theme-neon .navbar {
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.theme-neon .score-panel,
+.theme-neon .shop-item,
+.theme-neon .leaderboard-container,
+.theme-neon .achievements-container,
+.theme-neon .theme-selector {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.3);
+    transition: all 0.3s ease;
+}
+
+.theme-neon .game-button {
+    background: linear-gradient(135deg, #BB86FC, #8B3DFF);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 0 20px rgba(187, 134, 252, 0.5),
+        0 0 40px rgba(187, 134, 252, 0.3),
+        0 0 60px rgba(187, 134, 252, 0.1);
+    transition: all 0.3s ease;
+    animation: neonButtonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonButtonPulse {
+    0% { box-shadow: 0 0 20px rgba(187, 134, 252, 0.5), 0 0 40px rgba(187, 134, 252, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(187, 134, 252, 0.7), 0 0 60px rgba(187, 134, 252, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(187, 134, 252, 0.5), 0 0 40px rgba(187, 134, 252, 0.3); }
+}
+
+.theme-neon .game-button:hover {
+    box-shadow: 
+        0 0 30px rgba(187, 134, 252, 0.7),
+        0 0 50px rgba(187, 134, 252, 0.4),
+        0 0 70px rgba(187, 134, 252, 0.2);
+    transform: translateY(-2px);
+}
+
+.theme-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    z-index: 1000;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+.theme-notification.light {
+    background: #ffffff;
+    color: #1f2937;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.theme-notification.dark {
+    background: #1f2937;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.theme-notification.neon {
+    background: #BB86FC;
+    color: #000000;
+    box-shadow: 
+        0 4px 6px rgba(187, 134, 252, 0.3),
+        0 0 20px rgba(187, 134, 252, 0.2);
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    20%, 80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Smooth theme transitions */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.game-container,
+.navbar,
+.score-panel,
+.shop-item,
+.leaderboard-container,
+.achievements-container,
+.theme-selector {
+    transition: all 0.5s ease;
+}
